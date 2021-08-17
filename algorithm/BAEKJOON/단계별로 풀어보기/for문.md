@@ -270,3 +270,477 @@ console.log(answer);
 ---
 
 <br/>
+
+## N 찍기
+### 1부터 N까지 출력하는 문제
+
+<br/>
+
+| 문제 | 입력 | 출력 |
+:---:|:---:|:---:
+자연수 N이 주어졌을 때, 1부터 N까지 한 줄에 하나씩 출력하는 프로그램을 작성하시오. | 첫째 줄에 100,000보다 작거나 같은 자연수 N이 주어진다.| 첫째 줄부터 N번째 줄 까지 차례대로 출력한다.
+
+<br/>
+
+
+> 예제 입력 예시
+
+```
+5
+```
+
+> 예제 출력 예시
+
+```
+1
+2
+3
+4
+5
+```
+
+<br/>
+
+> 내가 푼 방식
+
+```javascript
+let input = require("fs").readFileSync("/dev/stdin").toString();
+
+let answer = "";
+
+for (let a = 1; a <= input; a++) {
+    answer += a + "\n";
+}
+console.log(answer);
+```
+<br/>
+
+#### 📔 시간초과가 난다면 require 방법을 이용하고 console.log를 줄여야한다.
+
+<br/>
+
+---
+
+<br/>
+
+
+
+
+
+## 	기찍 N
+### 제문 는하력출 지까N 터부1
+
+<br/>
+
+| 문제 | 입력 | 출력 |
+:---:|:---:|:---:
+자연수 N이 주어졌을 때, N부터 1까지 한 줄에 하나씩 출력하는 프로그램을 작성하시오. | 첫째 줄에 100,000보다 작거나 같은 자연수 N이 주어진다. | 첫째 줄부터 N번째 줄 까지 차례대로 출력한다.
+
+<br/>
+
+> 예제 입력 예시
+
+```
+5
+```
+
+> 예제 출력 예시
+
+```
+5
+4
+3
+2
+1
+```
+
+<br/>
+
+> 내가 푼 방식
+
+```javascript
+let input = Number(require('fs').readFileSync('/dev/stdin').toString());
+
+let answer = '';
+
+for (let i = input; i > 0; i--) {
+    answer += i + '\n';
+}
+console.log(answer);
+```
+<br/>
+
+#### 📔 시간초과가 난다면 require 방법을 이용하고 console.log를 줄여야한다.
+
+<br/>
+
+---
+
+<br/>
+
+
+
+
+
+## 	A+B - 7
+### A+B를 조금 더 아름답게 출력하는 문제
+
+<br/>
+
+| 문제 | 입력 | 출력 |
+:---:|:---:|:---:
+두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오. | 첫째 줄에 테스트 케이스의 개수 T가 주어진다. </br> 각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)| 각 테스트 케이스마다 "Case #x: "를 출력한 다음, A+B를 출력한다. 테스트 케이스 번호는 1부터 시작한다.
+
+<br/>
+
+> 예제 입력 예시
+
+```
+5
+1 1
+2 3
+3 4
+9 8
+5 2
+```
+
+> 예제 출력 예시
+
+```
+Case #1: 2
+Case #2: 5
+Case #3: 7
+Case #4: 17
+Case #5: 7
+```
+
+<br/>
+
+> 내가 푼 방식
+
+```javascript
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+
+let T = null;
+let countT = 0;
+let data = [];
+
+rl.on('line', function (line) {
+
+    if (!T) {
+        T = +line;
+    } else {
+
+        countT += 1; // data를 입력받으면 countN을 증가시켜주고
+
+        data = line.split(' ').map((el) => parseInt(el));
+        console.log("Case #" + countT + ": "+ (data[0] + data[1]));
+
+    }
+    if (countT === T) {
+        // 입력받은 T 만큼 테스트 케이스를 통과하게되면
+        rl.close(); // rl.close()를 호출하고
+    }
+}).on('close', function () {
+    process.exit(); // 종료한다.
+});
+```
+<br/>
+
+---
+
+<br/>
+
+## A+B - 8
+### A+B를 바로 위 문제보다 아름답게 출력하는 문제
+
+<br/>
+
+| 문제 | 입력 | 출력 |
+:---:|:---:|:---:
+두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오. | 첫 줄에 테스트케이스의 개수 T가 주어진다.<br> 각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10) | 각 테스트 케이스마다 "Case #x: A + B = C" 형식으로 출력한다.<br> x는 테스트 케이스 번호이고 1부터 시작하며, C는 A+B이다.
+
+<br/>
+
+
+> 예제 입력 예시
+
+```
+5
+1 1
+2 3
+3 4
+9 8
+5 2
+```
+
+> 예제 출력 예시
+
+```
+Case #1: 1 + 1 = 2
+Case #2: 2 + 3 = 5
+Case #3: 3 + 4 = 7
+Case #4: 9 + 8 = 17
+Case #5: 5 + 2 = 7
+```
+
+<br/>
+
+> 내가 푼 방식
+
+```javascript
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+
+let T = null;
+let countT = 0;
+let data = [];
+
+rl.on('line', function (line) {
+
+    if (!T) {
+        T = +line;
+    } else {
+
+        countT += 1; // data를 입력받으면 countN을 증가시켜주고
+
+        data = line.split(' ').map((el) => parseInt(el));
+        console.log("Case #" + countT + ": " + data[0] + " + " + data[1] + " = " + (data[0] + data[1]));
+
+    }
+    if (countT === T) {
+        // 입력받은 T 만큼 테스트 케이스를 통과하게되면
+        rl.close(); // rl.close()를 호출하고
+    }
+}).on('close', function () {
+    process.exit(); // 종료한다.
+});
+```
+<br/>
+<br/>
+
+---
+
+<br/>
+
+## 별 찍기 - 1
+### 별을 찍는 문제 1
+
+<br/>
+
+| 문제 | 입력 | 출력 |
+:---:|:---:|:---:
+첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제 | 첫째 줄에 N(1 ≤ N ≤ 100)이 주어진다.| 첫째 줄부터 N번째 줄까지 차례대로 별을 출력한다.
+
+<br/>
+
+
+> 예제 입력 예시
+
+```
+5
+```
+
+> 예제 출력 예시
+
+```
+*
+**
+***
+****
+*****
+```
+
+<br/>
+
+> 내가 푼 방식
+
+```javascript
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+let input = [];
+let answer = '';
+rl.on('line', function (line) {
+    input.push(line)
+    rl.close();
+}).on('close', function () {
+
+    for (let i = 1; i <= input; i++) {
+        answer += "*";
+        console.log(answer);
+    }
+
+    process.exit();
+});
+
+```
+<br/>
+
+#### 📔 빈 문자열에 *를 넣어 출력하는 방식으로 구현할 수 있습니다.
+
+<br/>
+
+---
+
+<br/>
+
+
+
+
+
+## 	별 찍기 - 2
+### 별을 찍는 문제 2
+
+<br/>
+
+| 문제 | 입력 | 출력 |
+:---:|:---:|:---:
+첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제 <br/> 하지만, 오른쪽을 기준으로 정렬한 별(예제 참고)을 출력하시오. | 첫째 줄에 N(1 ≤ N ≤ 100)이 주어진다. | 첫째 줄부터 N번째 줄까지 차례대로 별을 출력한다.
+
+<br/>
+
+> 예제 입력 예시
+
+```
+5
+```
+
+> 예제 출력 예시
+
+```
+    *
+   **
+  ***
+ ****
+*****
+```
+
+<br/>
+
+> 내가 푼 방식
+
+```javascript
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+let input = [];
+rl.on('line', function (line) {
+    input.push(line)
+    rl.close();
+}).on('close', function () {
+
+    const num = +input;
+    let star = '';
+    let blank = '';
+
+    for (let i = 1; i <= num; i++) {
+        star += '*';
+        // num - i -> 4,3,2,1,0
+        for (let j = 0; j < num - i; j++) {
+            blank += ' ';
+        }
+        console.log(blank + star);
+        blank = '';
+    }
+
+    process.exit();
+});
+```
+<br/>
+
+#### 📔 이중 for문을 이용해서 구현할 수 있습니다.
+
+<br/>
+
+---
+
+<br/>
+
+
+
+
+
+## 	X보다 작은 수
+### for와 if를 같이 쓰는 문제
+
+<br/>
+
+| 문제 | 입력 | 출력 |
+:---:|:---:|:---:
+정수 N개로 이루어진 수열 A와 정수 X가 주어진다. <br/> 이때, A에서 X보다 작은 수를 모두 출력하는 프로그램을 작성하시오. | 첫째 줄에 N과 X가 주어진다. (1 ≤ N, X ≤ 10,000) 둘째 줄에 수열 A를 이루는 정수 N개가 주어진다. <br/> 주어지는 정수는 모두 1보다 크거나 같고, 10,000보다 작거나 같은 정수이다.| X보다 작은 수를 입력받은 순서대로 공백으로 구분해 출력한다.<br/> X보다 작은 수는 적어도 하나 존재한다.
+
+<br/>
+
+> 예제 입력 예시
+
+```
+10 5
+1 10 4 9 2 3 8 5 7 6
+```
+
+> 예제 출력 예시
+
+```
+1 4 2 3
+```
+
+<br/>
+
+> 내가 푼 방식
+
+```javascript
+
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+
+let N = null;
+let X = null;
+let data = [];
+let result = [];
+
+rl.on('line', function (line) {
+
+    data = line.split(' ').map((el) => parseInt(el));
+
+    if (!N && !X) {
+        N = data[0];
+        X = data[1];
+
+    } else {
+
+        for (var i = 0; i <= N; i++) {
+            if(X > data[i]) {
+                result += data[i] + " ";
+            }
+        }
+
+    }
+
+}).on('close', function () {
+    console.log(result);
+    process.exit();
+});
+```
+<br/>
+<br/>
+
+---
