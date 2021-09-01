@@ -49,9 +49,9 @@ function linearSearch(arr, n, key){
 function binarySearch(arr, key) {
     let left = 0;
     let right = arr.length - 1;
-    
+
     while (left <= right) {
-        const mid = (arr.length-1)/2;
+        const mid = Math.floor((left + right) / 2);
 
         //검색 성공 (인덱스를 반환)
         if (arr[mid] === key) {
